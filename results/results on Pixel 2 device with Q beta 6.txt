@@ -1,0 +1,19 @@
+Java
+binarytreesjava time taken: 6
+fannkuchreduxjava time taken: 14581
+fastajava time taken: 286
+mandelbrotjava time taken: 1173
+spectralnormjava time taken: 190
+-------------------------
+kotlin converted
+binarytreesktconv time taken: 5
+fastaktconv time taken: 242
+mandelbrotktconv time taken: 1170
+spectralnormktconv time taken: 231
+-------------------------
+kotlin idiomatic
+binarytreesktidiom time taken: 27
+fannkuchreduxktidiom time taken: 12778
+fastaktidiom time taken: 260
+spectralnormktidiom time taken: 210
+done with all tests
