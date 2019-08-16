@@ -1,8 +1,11 @@
 package com.lb.myapplication
 
+import android.content.Intent
+import android.net.Uri
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import com.lb.myapplication.javabenchmarks.binarytrees.binarytreesjava
 import com.lb.myapplication.javabenchmarks.fannkuchredux.fannkuchreduxjava
@@ -17,6 +20,7 @@ import kotlinbenchmarks.idiom.binarytrees.binarytreesktidiom
 import kotlinbenchmarks.idiom.fannkuchredux.fannkuchreduxktidiom
 import kotlinbenchmarks.idiom.fasta.fastaktidiom
 import kotlinbenchmarks.idiom.spectralnorm.spectralnormktidiom
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -124,4 +128,26 @@ class MainActivity : AppCompatActivity() {
                 Log.d("AppLog", "done with all tests")
             }
     }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menu.add("Repository website").setOnMenuItemClickListener {
+            startActivity(prepareUrlIntent("https://github.com/AndroidDeveloperLB/javakotlinbenchmarks"))
+            true
+        }
+        menu.add("All my repositories").setOnMenuItemClickListener {
+            startActivity(prepareUrlIntent("https://github.com/AndroidDeveloperLB"))
+            true
+        }
+        menu.add("All my apps").setOnMenuItemClickListener {
+            startActivity(prepareUrlIntent("https://play.google.com/store/apps/developer?id=AndroidDeveloperLB"))
+            true
+        }
+        return true
+    }
+
+    private fun prepareUrlIntent(url: String) = Intent(Intent.ACTION_VIEW, Uri.parse(url)).addFlags(
+        Intent.FLAG_ACTIVITY_NO_HISTORY or Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET or
+                Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_MULTIPLE_TASK
+    )
+
 }
